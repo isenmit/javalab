@@ -1,2 +1,0 @@
-# javalab
-Java programs
