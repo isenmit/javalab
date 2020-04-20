@@ -1,0 +1,54 @@
+
+import java.util.Scanner;
+
+public class dbprogram
+{
+	public static void main(String[] args)
+	{
+		for( ; ; )
+		{
+			Scanner in=new Scanner(System.in);
+			System.out.println("\n 1. Insert Emp \n 2. Delete Emp \n 3. Display Acc to Name \n 4. Display All \n 5. Exit \n");
+			System.out.println("Enter your choice");
+			int n=in.nextInt();
+
+			employee e=new employee();
+			dao d=new dao();
+
+			switch(n)					//cases to perform insertion,deletion and display
+			{
+			case 1:						//adds and employee to the database and prints successful insertion on success
+					System.out.println("Enter the Employee Name : ");
+					e.setName(in.next());
+					System.out.println("Enter the Age : ");
+					e.setAge(in.nextInt());
+					System.out.println("Enter the Dept : ");
+					e.setDept(in.next());
+					System.out.println("Enter the Salary : ");
+					e.setSal(in.nextDouble());
+					d.insertemp(e);
+					System.out.println("Employee added successfully");
+					break;
+			case 2:						//deletes the specified employee from the database and prints deletion successful
+					System.out.println("Enter the employee name : ");
+					String Newname=in.next();
+					d.deleteemp(Newname);
+					System.out.println("Employee deleeted successfully");
+					break;
+			case 3:System.out.println("Enter the Employee name to display its attributes : ");	//displays the attributes of employee specified
+					String ename=in.next();
+					System.out.println("Employee details...");
+					d.displayname(ename);
+					break;
+			case 4:System.out.println("Employee deatils are as follows...");		//displays all employees
+					d.displayall();
+					break;
+			case 5:System.exit(0);
+					break;
+					default:
+						System.out.println("Please Choose Valid option \n");		//default case on wrong choice entry
+						break;
+			}
+		}
+	}
+}
