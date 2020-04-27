@@ -1,2 +1,2 @@
-# javalab
-Java programs
+# Java Lab 
+Part B programs
